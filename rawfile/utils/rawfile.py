@@ -148,7 +148,7 @@ def attached_loops(file: str) -> list[str]:
 
 def attach_loop(file) -> str:
     def next_loop():
-        loop_file = run("losetup -f", capture_output=True).stdout.decode().strip()
+        loop_file = run("losetup -f", capture_output=True).stdout.decode().replace(" (lost)", "").strip()
         if not Path(loop_file).exists():
             pfx_len = len("/dev/loop")
             loop_dev_id = loop_file[pfx_len:]
