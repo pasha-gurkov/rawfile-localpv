@@ -1,0 +1,3 @@
+#+begin_src shell :results output
+helm template ~/git_tree/rawfile-localpv-fork/deploy/helm/rawfile-localpv -f ~/git_tree/rawfile-localpv-fork/deploy/helm/rawfile-localpv/values.yaml -f ~/git_tree/rawfile-localpv-fork/deploy/helm/rawfile-localpv/values-test.yaml
+#+end_src

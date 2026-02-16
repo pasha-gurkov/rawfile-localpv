@@ -1,0 +1,71 @@
+
+# reservedCapacity: "20%"
+# capacityOverride: "5GiB"
+# capacityOverrideMode: "subtract-from-total"
+# thinProvision: false
+# overprovision: true
+auth:
+  enabled: true
+  token: ""
+  secretName: ""
+
+capabilities:
+  snapshots:
+    enabled: true
+  resize:
+    enabled: true
+
+controller:
+  externalResizer:
+    enabled: false
+  image:
+    tag: latest
+    repository: dev/rawfile
+    pullPolicy: "Never"
+
+node:
+  storagePools:
+    default:
+      path: "/data/rawfile"
+      reservedCapacity: "30%"
+      reservedCapacityMode: "subtract-from-total"
+      capacityOverride: "123GiB"
+      #accountVolumesFreeSpace: false # FAILING
+  # dataDirPath: "/data/rawfile"
+  snapshotController:
+    enabled: false
+  externalSnapshotter:
+    enabled: false
+  image:
+    pullPolicy: "Never"
+    tag: latest
+    repository: dev/rawfile
+  driverRegistrar:
+    image:
+      pullPolicy: "Never"
+  externalProvisioner:
+    image:
+      pullPolicy: "Never"
+
+crds:
+  enabled: true
+  csi:
+    volumeSnapshots:
+      enabled: false
+
+storageClasses:
+  - name: rawfile-localpv-dev
+    enabled: true
+    volumeBindingMode: WaitForFirstConsumer
+    isDefault: false
+    allowVolumeExpansion: false
+    reclaimPolicy: Delete
+    fsType: ext4
+    thinProvision: false
+    mountOptions: []
+    formatOptions: ["-E nodiscard", "-m 0"]
+    copyOnWrite: false
+    freezeFs: ""
+    storagePool: "default"
+
+snapshotClasses: []
