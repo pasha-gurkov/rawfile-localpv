@@ -152,7 +152,7 @@ node:
       registry: ""
       # -- Image Repository for `snapshot-controller`
       repository: sig-storage/snapshot-controller
-      # -- Image Tag for `snapshot-controller`
+      # -- Image Tag for `snapshot-controller `
       tag: v8.2.1
 
   # -- Default filesystem type for rawfile volumes (Currently supports `btrfs`, `xfs` and `ext4` [which is default])

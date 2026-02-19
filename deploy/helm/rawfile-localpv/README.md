@@ -92,7 +92,7 @@ Please follow the [install guide](https://github.com/openebs/rawfile-localpv/tre
 | node.resources | object | `{}` | Sets compute resources for node component |
 | node.snapshotController.image.registry | string | `""` | Image Registry for `snapshot-controller` |
 | node.snapshotController.image.repository | string | `"sig-storage/snapshot-controller"` | Image Repository for `snapshot-controller` |
-| node.snapshotController.image.tag | string | `"v8.2.1"` | Image Tag for `snapshot-controller` |
+| node.snapshotController.image.tag | string | `"v8.2.1"` | Image Tag for `snapshot-controller ` |
 | node.snapshotController.resources | object | `{}` | Sets compute resources for snapshot-controller container |
 | node.tolerations | string | `nil` | Tolerations for node component |
 | provisionerName | string | `"rawfile.csi.openebs.io"` | Name of the registered CSI Driver in the cluster |
